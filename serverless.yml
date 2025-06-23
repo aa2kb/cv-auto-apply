@@ -1,11 +1,20 @@
 service: multi-runtime-serverless
 
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3000
+    noPrependStageInUrl: true
+    noAuth: true
+
 provider:
   name: aws
   runtime: nodejs14.x
   region: us-east-1
   environment:
-    NODE_ENV: production
+    NODE_ENV: development
 
 functions:
   pythonHello:
